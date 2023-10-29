@@ -1,0 +1,79 @@
+Alphabet:
+
+a. Upper (A-Z) and lower case letters (a-z) of the English alphabet
+b. Underline character '_';
+c. Decimal digits (0-9);
+
+1. LEXIC:
+
+a.Special symbols, representing:
+
+- operators + - * / < > <= == >= = += -= *= /= %
+
+- separators [ ] { } ( ) : ; , space newline
+
+- reserved words:array char const do else if integer read then var while write program for from to endif endfor endwhile break end begin string 
+
+
+b.identifiers
+
+-a sequence of letters and  digits, such that the first character is a letter; the rule is:
+
+    identifier ::= (letter){letter|digit|"_"}
+    letter ::= "A" | "B" | . ..| "Z" | "a" | "b" | .. | "z"
+    digit ::= "0" | "1" |...| "9"
+    none_zero_digit ::= "1" |...| "9"
+
+
+c.constants
+
+   1. int_constant = ["+"?|"-"] non_zero_digit {digit} | "0"
+   2. character_constant="'"letter"'" | "'"digit"'"
+   3. string_constant = """{letter|digit|"_"|" "}"""
+
+
+
+2. SYNTAX:
+
+program ::= "PROGRAM" IDENTIFIER ";" declarations compound_statement "."
+
+declarations ::= {declaration ";"}
+
+declaration ::= "VAR" IDENTIFIER ":" type
+
+type ::= "STRING" | "CHAR" | "INTEGER" | array_declaration
+
+array_declaration ::= "ARRAY" "[" integer_constant "]" "OF" type
+
+compound_statement ::= "BEGIN" statement_list "END"
+
+statement_list ::= statement | statement ";" statement_list
+
+statement ::= simple_statement | structured_statement
+
+simple_statement ::= assignment_statement | io_statement
+
+assignment_statement ::= IDENTIFIER ":=" expression
+
+expression ::= expression "+" term | expression "-" term | term
+
+term ::=  term "*" factor | term "/" factor | factor
+
+factor ::= "(" expression ")" | IDENTIFIER
+
+io_statement ::= "READ" "(" IDENTIFIER ")" | "WRITE" "(" IDENTIFIER ")"
+
+structured_statement ::= compound_statement | if_statement | while_statement
+
+if_statement ::= "IF" condition "THEN" statement ["ELSE" statement] "ENDIF"
+
+while_statement ::= "WHILE" condition "DO" statement
+
+for_loop ::= "FOR" identifier "FROM" int_constant "TO" int_constant "DO" compound_statement "ENDFOR";
+
+
+condition ::= expression relation expression
+
+relation ::= "<" | "<=" | "=" | "<>" | ">=" | ">"
+
+
