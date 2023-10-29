@@ -1,0 +1,17 @@
+Overview:
+This project demonstrates a basic implementation of a HashTable in Java. A HashTable is a data structure that allows you to store key-value pairs and efficiently retrieve values based on their keys.
+
+Classes:
+HashTable:
+This class represents the HashTable data structure.
+It allows you to put (insert) key-value pairs into the HashTable and get (retrieve) values based on keys.
+It uses a hash function to compute the index for each key, and it handles collisions using a linked list.
+It provides the following methods:
+put(String value): Inserts a string into the HashTable.
+get(String key): Retrieves the index associated with a given key.
+Usage:
+The project includes a sample main method to demonstrate how to use the HashTable:
+How It Works:
+The HashTable class initializes with a specified capacity.
+The put method hashes the given string, computes the index, and adds it to the appropriate linked list.
+The get method hashes the key, searches the linked list at that index, and returns the index if found.
