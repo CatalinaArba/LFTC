@@ -1,0 +1,30 @@
+PROGRAM MaxMinOfThreeNumbers;
+VAR 1num1: INTEGER;
+VAR @num2: INTEGER;
+VAR num3: INTEGER;
+VAR max: INTEGER;
+VAR min: INTEGER;
+BEGIN
+  @num1 = 5;
+  num2 = 7;
+  num3 = 3;
+
+  IF num1 > num2 THEN
+    max = num1;
+    min = num2;
+  ELSE
+    max = num2;
+    min = num1;
+  ENDIF;
+
+  IF num3 > max THEN
+    max = num3;
+  ENDIF;
+
+  IF num3 < min THEN
+    min = num3;
+  ENDIF;
+
+  WRITE("The maximum number is , max);
+  WRITE("The minimum number is ", min);
+END

@@ -1,0 +1,25 @@
+PROGRAM IsPrime;
+VAR num: INTEGER;
+VAR isPrime: INTEGER;
+VAR i: INTEGER;
+BEGIN
+  num = 17;
+  isPrime = 1;
+
+  IF num <= 1 THEN
+    isPrime = 0;
+  ELSE
+    FOR i FROM 2 TO num - 1 DO
+      IF num % i = 0 THEN
+        isPrime = 0;
+        BREAK;
+      ENDIF;
+    ENDFOR;
+  ENDIF;
+
+  IF isPrime == 1 THEN
+    WRITE("The number is prime");
+  ELSE
+    WRITE("The number is not prime");
+  ENDIF;
+END
