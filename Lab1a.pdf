@@ -1,0 +1,82 @@
+p1)
+PROGRAM MaxMinOfThreeNumbers;
+VAR 1num1: INTEGER;
+VAR @num2: INTEGER;
+VAR num3: INTEGER;
+VAR max: INTEGER;
+VAR min: INTEGER;
+BEGIN
+  num1 = 5;
+  num2 = 7;
+  num3 = 3;
+
+  IF num1 > num2 THEN
+    max = num1;
+    min = num2;
+  ELSE
+    max = num2;
+    min = num1;
+  ENDIF;  
+
+  IF num3 > max THEN
+    max = num3;
+  ENDIF; 
+
+  IF num3 < min THEN
+    min = num3;
+  ENDIF;
+
+  WRITE("The maximum number is ", max);
+  WRITE("The minimum number is ", min);
+END
+
+The first syntactical error: @num2 (@ not present in the alphabet)
+The second syntactical error : 1num1 (an identifier must start with a letter)
+
+p2) 
+PROGRAM IsPrime;
+VAR num: INTEGER;
+VAR isPrime: INTEGER;
+VAR i: INTEGER;
+BEGIN
+  num = 17;  
+  isPrime = 1;
+
+  IF num <= 1 THEN
+    isPrime = 0; 
+  ELSE
+    FOR i FROM 2 TO num - 1 DO
+      IF num % i = 0 THEN
+        isPrime = 0; 
+        BREAK; 
+      ENDIF;
+    ENDFOR;
+  ENDIF;
+
+  IF isPrime == 1 THEN
+    WRITE("The number is prime");
+  ELSE
+    WRITE("The number is not prime");
+  ENDIF;
+END
+
+
+
+p3) 
+PROGRAM SumOfNNumbers;
+VAR n: INTEGER;
+VAR i: INTEGER; 
+VAR sum: INTEGER;
+VAR num: INTEGER;
+BEGIN
+  n = 5; 
+  sum = 0;
+  FOR i FROM 1 TO n DO
+    READ(num);
+    sum = sum + num;
+  ENDFOR;
+  WRITE("The sum of the numbers is ", sum);
+END
+
+
+
