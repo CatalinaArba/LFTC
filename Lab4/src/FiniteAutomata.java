@@ -1,9 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class FiniteAutomata {
     private List<String> setOfStates;
@@ -48,16 +45,22 @@ public class FiniteAutomata {
                 }
 
                 List<String> transitions = Arrays.asList(transition.split(","));
-                Transition model = new Transition();
-                model.setStartState(transitions.get(0));
-                model.setValue(transitions.get(1));
-                List<String> endStates = new ArrayList<String>();
-                for (int i = 2; i < transitions.size(); i++) {
-                    endStates.add(transitions.get(i));
-                }
-                model.setEndState(endStates);
+                Transition t=this.findTransition(transitions.get(0), transitions.get(1));
+                if(t!=null){
+                    this.addFinalState(t,transitions.get(2));
+                }else{
+                    Transition model = new Transition();
+                    model.setStartState(transitions.get(0));
+                    model.setValue(transitions.get(1));
+                    List<String> endStates = new ArrayList<>();
+                    for (int i = 2; i < transitions.size(); i++) {
+                        endStates.add(transitions.get(i));
+                    }
+                    model.setEndState(endStates);
 
-                this.transitionsList.add(model);
+                    this.transitionsList.add(model);
+                }
+
             }
 
             // Final states
@@ -130,4 +133,21 @@ public class FiniteAutomata {
         }
         return "no-state-found";
     }
+
+    private Transition findTransition(String startState, String value){
+        for (Transition transition:transitionsList ){
+            if (Objects.equals(transition.getStartState(), startState) && Objects.equals(transition.getValue(), value))
+                return transition;
+        }
+        return null;
+    }
+
+    private void addFinalState(Transition transition, String newFinalState){
+        for(String finalState:transition.getEndState()){
+            if(Objects.equals(finalState, newFinalState))
+                return;
+        }
+        transition.getEndState().add(newFinalState);
+    }
+
 }

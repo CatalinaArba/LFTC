@@ -1,7 +1,11 @@
 import java.util.List;
 
 public class Transition {
+
+    //key
     private String startState;
+
+    //value
     private String value;
     private List<String> endState;
 
