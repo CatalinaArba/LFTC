@@ -1,0 +1,87 @@
+Finite Automaton (FA) Project Documentation
+Overview
+This project implements a Finite Automaton (FA) in Java, allowing users to define, manipulate, and analyze finite automata. The FA is loaded from a file in a specific format, and various operations can be performed on it.
+
+
+Project Components
+1. FiniteAutomaton Class
+The FiniteAutomaton class represents the FA and has the following attributes:
+
+setOfStates: List of states in the FA.
+alphabet: List of symbols in the alphabet.
+transitionsList: List of transitions between states.
+finalStates: List of final states.
+initialState: The initial state.
+fileName: The path to the file containing FA details.
+Methods:
+readFromFile(): Reads FA details from the specified file.
+getSetOfStates(): Returns the list of states.
+getAlphabet(): Returns the list of symbols in the alphabet.
+getTransitionsList(): Returns the list of transitions.
+getFinalStates(): Returns the list of final states.
+getInitialState(): Returns the initial state.
+isDFA(): Checks if the FA is a Deterministic Finite Automaton (DFA).
+isAccepted(String seq): Verifies if a sequence is accepted by the FA.
+nextState(String startState, String value): Returns the next state given the current state and input symbol.
+
+2. Transition Class
+The Transition class represents a transition in the FA and has the following attributes:
+
+startState: The starting state of the transition.
+value: The input symbol triggering the transition.
+endState: List of possible states after the transition.
+
+Methods:
+Getter and setter methods for each attribute.
+toString(): Returns a string representation of the transition.
+
+3. Main Class
+The Main class contains the main method and serves as the entry point for the program.
+
+Methods:
+display_menu(): Displays the menu of operations that can be performed on the FA.
+main(String[] args): Executes the program, allowing users to interact with the FA.
+
+
+Usage
+Set of States Section:
+
+States are specified on the second line after the "SET OF STATES" header.
+States are separated by commas.
+Alphabet Section:
+
+The alphabet is specified on the second line after the "ALPHABET" header.
+Symbols in the alphabet are separated by commas.
+Transitions Section:
+
+Transitions are specified on the line after the "TRANSITIONS" header.
+Each transition is specified on a separate line and follows the format: startState, value, endState1, endState2, ....
+Transitions are read until the "FINAL STATES" header is encountered.
+Final States Section:
+
+Final states are specified on the line after the "FINAL STATES" header.
+Final states are separated by commas.
+Initial State Section:
+
+The initial state is specified on the line after the "INITIAL STATE" header.
+Menu Operations:
+
+Users can choose operations by entering the corresponding option number.
+Options include displaying states, alphabet, transitions, final states, checking if the FA is a DFA, and verifying if a sequence is accepted.
+
+
+File Format Example (finite_automata.txt)
+
+SET OF STATES
+p,q,r
+ALPHABET
+a,b
+TRANSITIONS
+p,a,q
+q,a,q
+q,b,r
+p,b,r
+FINAL STATES
+r
+INITIAL STATE
+p
