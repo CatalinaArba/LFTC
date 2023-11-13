@@ -1,6 +1,77 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
+        FiniteAutomata FA = new FiniteAutomata("C:\\Users\\arbac\\Documents\\GitHub\\LFTC\\Lab4\\src\\finite_automata.txt");
+        FA.readFromFile();
+
+        while (true) {
+            display_menu();
+            String command = "";
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Enter command: ");
+            try {
+                command = reader.readLine();
+            }catch (IOException exception){
+                System.out.println(exception);
+                return;
+            }
+
+            switch (command) {
+                case "1":
+                    System.out.println("States: ");
+                    System.out.println(FA.getSetOfStates());
+                    System.out.println("\n");
+                    break;
+                case "2":
+                    System.out.println("Alphabet: ");
+                    System.out.println(FA.getAlphabet());
+                    System.out.println("\n");
+                    break;
+                case "3":
+                    System.out.println("Transitions: ");
+                    System.out.println(FA.getTransitionsList());
+                    System.out.println("\n");
+                    break;
+                case "4":
+                    System.out.println("Final states: ");
+                    System.out.println(FA.getFinalStates());
+                    System.out.println("\n");
+                    break;
+                case "5":
+                    String message = FA.isDFA() ? "is a DFA" : "is NOT a DFA";
+                    System.out.println("The introduced FA " + message);
+                    System.out.println("\n");
+                    break;
+                case "6":
+                    if(!FA.isDFA()){
+                        System.out.println("FA needs to be a DFA.");
+                        break;
+                    }
+                    BufferedReader reader2 =  new BufferedReader(new InputStreamReader(System.in));
+                    System.out.println("Enter sequence: ");
+
+                    try {
+                        String sequence = reader2.readLine();
+                        String message2 = FA.isAccepted(sequence) ? "Sequence is accepted" : "Sequence is not accepted";
+                        System.out.println(message2);
+                        System.out.println("\n");
+                        break;
+                    }catch (IOException exception){
+                        System.out.println(exception);
+                        return;
+                    }
+
+                case "0":
+                    System.exit(0);
+                default:
+                    System.err.println("Unrecognized option");
+                    break;
+            }
+        }
     }
 
     private static void display_menu() {

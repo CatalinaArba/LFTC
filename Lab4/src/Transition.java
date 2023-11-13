@@ -31,4 +31,13 @@ public class Transition {
     public void setEndState(List<String> endState) {
         this.endState = endState;
     }
+
+    @Override
+    public String toString() {
+        return "Transition{" +
+                "startState='" + startState + '\'' +
+                ", value='" + value + '\'' +
+                ", endState=" + endState +
+                '}';
+    }
 }
