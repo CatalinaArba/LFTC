@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+void yyerror(char *msg);
 %}
 
 %option noyywrap
@@ -26,6 +27,11 @@ CHAR_CONST     [\'][a-zA-Z0-9 ][\']
 [ \t]+   {}
 
 %%
+
+void yyerror(char *msg){
+	fprintf(stderr,"%s\n",msg);
+	exit(1);
+}
 
 void main(argc, argv)
 int argc;

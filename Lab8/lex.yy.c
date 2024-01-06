@@ -427,7 +427,8 @@ char *yytext;
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#line 431 "lex.yy.c"
+void yyerror(char *msg);
+#line 432 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -578,10 +579,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 16 "myscanner.lxi"
+#line 17 "myscanner.lxi"
 
 
-#line 585 "lex.yy.c"
+#line 586 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -666,50 +667,50 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 18 "myscanner.lxi"
+#line 19 "myscanner.lxi"
 {printf("Reserved words: %s\n", yytext);}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 19 "myscanner.lxi"
+#line 20 "myscanner.lxi"
 {printf("Operator: %s\n", yytext);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 20 "myscanner.lxi"
+#line 21 "myscanner.lxi"
 {printf("Separator: %s\n", yytext);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 21 "myscanner.lxi"
+#line 22 "myscanner.lxi"
 {printf("Identifier %s\n", yytext);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 22 "myscanner.lxi"
+#line 23 "myscanner.lxi"
 {printf("Integer constant: %s\n", yytext);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 23 "myscanner.lxi"
+#line 24 "myscanner.lxi"
 {printf("String constant: %s\n", yytext);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 24 "myscanner.lxi"
+#line 25 "myscanner.lxi"
 {printf("Char constant: %s\n", yytext);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 26 "myscanner.lxi"
+#line 27 "myscanner.lxi"
 {}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 28 "myscanner.lxi"
+#line 29 "myscanner.lxi"
 ECHO;
 	YY_BREAK
-#line 713 "lex.yy.c"
+#line 714 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1595,8 +1596,13 @@ int main()
 	return 0;
 	}
 #endif
-#line 28 "myscanner.lxi"
+#line 29 "myscanner.lxi"
 
+
+void yyerror(char *msg){
+	fprintf(stderr,"%s\n",msg);
+	exit(1);
+}
 
 void main(argc, argv)
 int argc;

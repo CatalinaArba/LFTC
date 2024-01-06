@@ -1,0 +1,8 @@
+How to run :
+First command: flex myscanner.lxi 
+=>lex.yy.x
+
+Second command: gcc lex.yy.c
+=> a.exe
+
+Third command: a.exe p1.txt
