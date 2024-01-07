@@ -5,33 +5,11 @@
 #define YYDEBUG 1
 %}
 
-%union {
-    int int_val;
-    double double_val;
-    char* string_val;
-    struct {
-        char* type;
-        char* identifier;
-    } type_identifier_val;
-}
 
-%token <int_val> INT_CONST
-%token <string_val> STRING_CONST
-%token <string_val> IDENTIFIER
-%type <double_val> DOUBLE
-%type <string_val> STRING
-%type <string_val> CHAR
-
-%type <type_identifier_val> type
-
-
-
-%type <int_val> expression term factor
-%type <int_val> listInt
-
-%type <string_val> listString listDeclaration
-%type <string_val> stmtlist
-
+%token INT_CONST
+%token DOUBLE_CONST
+%token STRING_CONST
+%token IDENTIFIER
 
 
 
@@ -55,8 +33,6 @@
 %token ELSE
 %token WHILELOOP
 %token FORLOOP
-%token BOOLEAN
-%token CHAR
 %token INT
 %token DOUBLE
 %token STRING
@@ -85,16 +61,13 @@ decllist : declaration semicolon
 declaration : type listDeclaration 
 	   | type IDENTIFIER
 	   ;
-type : BOOLEAN 
-	| CHAR 
-	| INT 
+type :  INT 
 	| STRING 
 	| DOUBLE
         ;
-listDeclaration : IDENTIFIER openBracket listInt closeBracket 	{ $$ = $3; }
-	| IDENTIFIER openBracket listString closeBracket      { $$ = $3; }
-	| IDENTIFIER openBracket closeBracket	{ $$ = NULL; }
-	| { $$ = NULL; }
+listDeclaration : IDENTIFIER openBracket listInt closeBracket
+	| IDENTIFIER openBracket listString closeBracket
+	| IDENTIFIER openBracket closeBracket
 	;
 listInt : INT_CONST comma listInt 
 	| INT_CONST
@@ -106,7 +79,6 @@ cmpdstmt : stmtlist
 	;
 stmtlist : stmt semicolon stmtlist 
 	| stmt semicolon
-	| { $$ = NULL; }
 	;
 stmt : simplstmt 
 	| structstmt
@@ -128,6 +100,7 @@ term : factor mul term
 factor : openParenthese expression closeParenthese 
 	| IDENTIFIER 
 	| INT_CONST 
+	| DOUBLE_CONST
 	| IDENTIFIER openBracket expression closeBracket
 	;
 iostmt : READ IDENTIFIER 

@@ -40,64 +40,45 @@
       know about them.  */
    enum yytokentype {
      INT_CONST = 258,
-     STRING_CONST = 259,
-     IDENTIFIER = 260,
-     plus = 261,
-     minus = 262,
-     mul = 263,
-     division = 264,
-     mod = 265,
-     less = 266,
-     lessOrEqual = 267,
-     equal = 268,
-     different = 269,
-     greaterOrEqual = 270,
-     greater = 271,
-     assign = 272,
-     READ = 273,
-     WRITE = 274,
-     IF = 275,
-     ELSE = 276,
-     WHILELOOP = 277,
-     FORLOOP = 278,
-     BOOLEAN = 279,
-     CHAR = 280,
-     INT = 281,
-     DOUBLE = 282,
-     STRING = 283,
-     openBrace = 284,
-     closeBrace = 285,
-     openBracket = 286,
-     closeBracket = 287,
-     openParenthese = 288,
-     closeParenthese = 289,
-     comma = 290,
-     semicolon = 291
+     DOUBLE_CONST = 259,
+     STRING_CONST = 260,
+     IDENTIFIER = 261,
+     plus = 262,
+     minus = 263,
+     mul = 264,
+     division = 265,
+     mod = 266,
+     less = 267,
+     lessOrEqual = 268,
+     equal = 269,
+     different = 270,
+     greaterOrEqual = 271,
+     greater = 272,
+     assign = 273,
+     READ = 274,
+     WRITE = 275,
+     IF = 276,
+     ELSE = 277,
+     WHILELOOP = 278,
+     FORLOOP = 279,
+     INT = 280,
+     DOUBLE = 281,
+     STRING = 282,
+     openBrace = 283,
+     closeBrace = 284,
+     openBracket = 285,
+     closeBracket = 286,
+     openParenthese = 287,
+     closeParenthese = 288,
+     comma = 289,
+     semicolon = 290
    };
 #endif
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE
-{
-
-/* Line 1676 of yacc.c  */
-#line 8 "parser.y"
-
-    int int_val;
-    double double_val;
-    char* string_val;
-    struct {
-        char* type;
-        char* identifier;
-    } type_identifier_val;
-
-
-
-/* Line 1676 of yacc.c  */
-#line 100 "parser.tab.h"
-} YYSTYPE;
+typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
