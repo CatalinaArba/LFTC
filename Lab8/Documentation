@@ -1,5 +1,5 @@
 Documentation LEX
- The word format of the documentation can be downloaded from here: 
+ The word format of the documentation can be downloaded from here: https://github.com/CatalinaArba/LFTC/blob/main/Lab8/DocumentationLex.docx
 1.	Overview
 The myscanner.lxi file is a Lex (Flex) program designed to recognize and classify tokens in a simple programming language. It recognizes keywords, operators, separators, identifiers, integer constants, string constants, and character constants.
  
