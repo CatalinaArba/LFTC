@@ -39,49 +39,65 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     IDENTIFIER = 258,
-     INT_CONST = 259,
-     STRING_CONST = 260,
-     CHAR_CONST = 261,
-     START = 262,
-     plus = 263,
-     minus = 264,
-     mul = 265,
-     division = 266,
-     mod = 267,
-     less = 268,
-     lessOrEqual = 269,
-     equal = 270,
-     different = 271,
-     greaterOrEqual = 272,
-     greater = 273,
-     assign = 274,
-     READ = 275,
-     WRITE = 276,
-     IF = 277,
-     ELSE = 278,
-     WHILELOOP = 279,
-     FORLOOP = 280,
-     BOOLEAN = 281,
-     CHAR = 282,
-     INT = 283,
-     DOUBLE = 284,
-     STRING = 285,
-     openBrace = 286,
-     closeBrace = 287,
-     openBracket = 288,
-     closeBracket = 289,
-     openParenthese = 290,
-     closeParenthese = 291,
-     comma = 292,
-     semicolon = 293
+     INT_CONST = 258,
+     STRING_CONST = 259,
+     IDENTIFIER = 260,
+     plus = 261,
+     minus = 262,
+     mul = 263,
+     division = 264,
+     mod = 265,
+     less = 266,
+     lessOrEqual = 267,
+     equal = 268,
+     different = 269,
+     greaterOrEqual = 270,
+     greater = 271,
+     assign = 272,
+     READ = 273,
+     WRITE = 274,
+     IF = 275,
+     ELSE = 276,
+     WHILELOOP = 277,
+     FORLOOP = 278,
+     BOOLEAN = 279,
+     CHAR = 280,
+     INT = 281,
+     DOUBLE = 282,
+     STRING = 283,
+     openBrace = 284,
+     closeBrace = 285,
+     openBracket = 286,
+     closeBracket = 287,
+     openParenthese = 288,
+     closeParenthese = 289,
+     comma = 290,
+     semicolon = 291
    };
 #endif
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+typedef union YYSTYPE
+{
+
+/* Line 1676 of yacc.c  */
+#line 8 "parser.y"
+
+    int int_val;
+    double double_val;
+    char* string_val;
+    struct {
+        char* type;
+        char* identifier;
+    } type_identifier_val;
+
+
+
+/* Line 1676 of yacc.c  */
+#line 100 "parser.tab.h"
+} YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
