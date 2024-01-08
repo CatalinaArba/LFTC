@@ -12,7 +12,7 @@ Lexic:
         Separators: [ | ] | { | } | ( | ) | ; | , | space | newline
 
     b. Reserved Words:
-        list | char | const | do | else | if | int | program | read | whileLoop | forLoop | write | char | double | string
+        list|do | else | if | int | program | read | whileLoop | forLoop | write | double | string
 
     c. Identifiers:
         identifier := letter | letter{letter}{digit}
@@ -24,8 +24,8 @@ Lexic:
         1. int - rule:
 	    int := "0" | ["-"] number
 
-        2. Char:
-            char := 'letter' | 'digit'
+      	2. Double
+	    double :=  ["-"] non_zero_digit {digit} "." digit | ["-"] "0" "." digit {digit}
 
         3. String:
             string := "{char}"

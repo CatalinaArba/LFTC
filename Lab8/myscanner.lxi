@@ -16,7 +16,7 @@ STRING_CONST   [\"][a-zA-Z0-9 ]*[\"]
 
 %%
 
-"read"|"write"|"if"|"else"|"whileLoop"|"forLoop"|"boolean"|"int"|"double"|"string"     {printf("Reserved words: %s\n", yytext);}
+"read"|"write"|"if"|"else"|"whileLoop"|"forLoop"|"int"|"double"|"string"     {printf("Reserved words: %s\n", yytext);}
 "+"|"-"|"*"|"/"|"%"|"<"|"<="|"=="|"!="|">="|">"|"="        {printf("Operator: %s\n", yytext);}
 "{"|"}"|"["|"]"|"("|")"|","|";"        {printf("Separator: %s\n", yytext);}
 {IDENTIFIER}     {printf("Identifier %s\n", yytext);}
