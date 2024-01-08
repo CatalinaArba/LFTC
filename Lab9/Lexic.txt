@@ -1,0 +1,35 @@
+Lexic:
+
+
+   1. Alphabet:
+        Upper case and lower case letters: (A-Za-z)
+	Underline character: '_'
+        Decimal digits: (0-9)
+
+   2.  Lexic:
+    a. Special Symbols:
+        Operators: + | - | * | / | % | < | <= | >= | != | == | > | =
+        Separators: [ | ] | { | } | ( | ) | ; | , | space | newline
+
+    b. Reserved Words:
+        list|do | else | if | int | program | read | whileLoop | forLoop | write | double | string
+
+    c. Identifiers:
+        identifier := letter | letter{letter}{digit}
+	letter := "A" | "B" | ... | "Z" | "a" | "b" | ... | "z"
+	digit := "0" | "1" | ... | "9"
+	non_zero_digit := "1" | ... | "9"
+
+    d. Constants:
+        1. int - rule:
+	    int := "0" | ["-"] number
+
+      	2. Double
+	    double :=  ["-"] non_zero_digit {digit} "." digit | ["-"] "0" "." digit {digit}
+
+        3. String:
+            string := "{char}"
+
+	4. Number:
+	    number := non_zero_digit{digit}
+
