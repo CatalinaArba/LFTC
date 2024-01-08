@@ -1,4 +1,5 @@
-int array[1,2,3,4,5] ; int i ; int sum ; int n ; double average ;
+int array[1,2,3,4,5] ; int ?i ; int sum ; int n ; double average ;
+average= 7.2 ;
 i = 0 ;
 sum = 0 ;
 n = 5 ;

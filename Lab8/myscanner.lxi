@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+int currentLine=1;
 void yyerror(char *msg);
 %}
 
@@ -26,6 +27,11 @@ STRING_CONST   [\"][a-zA-Z0-9 ]*[\"]
 
 [ \t]+   {}
 [ \n]+   {}
+
+[0-9][a-zA-Z0-9_]*		{printf("Illegal identifier at line %d\n", currentLine);}
+[+|-]0		{printf("Illegal numeric constant at line %d\n", currentLine);}
+[+|-]?[0][0-9]*([.][0-9]*)?		{printf("Illegal numeric constant at line %d\n", currentLine);}
+.	{printf("Eroor");}
 
 %%
 
